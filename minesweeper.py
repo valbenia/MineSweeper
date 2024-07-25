@@ -1,7 +1,7 @@
 import random
 import time
 import tkinter as tk
-from tkinter import font, simpledialog
+from tkinter import font, simpledialog, messagebox
 import sweeperlib
 
 class GameState:
@@ -292,7 +292,7 @@ class MinesweeperGame:
     def handle_loss(self):
         for mine_x, mine_y in self.state.available_mines:
             self.state.field[mine_x][mine_y] = self.state.result[mine_x][mine_y]
-
+        messagebox.showinfo("Game over!", "You lost!")
         self.lost_title_label.pack()
         self.try_again_button.pack()
 
